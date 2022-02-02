@@ -1,0 +1,113 @@
+@import "../../style/index.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home {
+  @include ml(50);
+  @include mr(50);
+  @include media(700) {
+    @include ml(10);
+    @include mr(10);
+  }
+  margin-top: 50px;
+  margin-bottom: 50px;
+  > .content {
+    margin-bottom: 30px;
+    > .title {
+      @include flex(s, c, 10px);
+      > .icon {
+        width: 30px;
+        height: 30px;
+        background: $maincolorGradient;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        > svg {
+          color: white;
+        }
+      }
+      > h5 {
+        font-family: $ubntoFont;
+        font-size: 18px;
+        font-weight: 400;
+        color: $black;
+      }
+    }
+    > .cards {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      @include flex(s, c, 20px);
+      > .card {
+        @include media(560) {
+          @include width(2, 20px);
+        }
+        @include media(380) {
+          @include width(1, 20px);
+        }
+        @include width(3, 20px);
+        box-shadow: $shadow;
+        > .content {
+          padding: 15px;
+          > .title {
+            @include flex(sb, c, 0);
+            > h5 {
+              font-family: $ubntoFont;
+              color: white;
+              font-weight: 300;
+              font-size: 23px;
+              margin-bottom: 10px;
+            }
+            > svg {
+              color: white;
+              font-size: 25px;
+            }
+          }
+          > h4 {
+            font-family: $ubntoFont;
+            color: white;
+            font-weight: 300;
+            font-size: 23px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    > .map {
+      height: 400px;
+      @include media(400) {
+        height: 300px;
+      }
+    }
+    > .carts {
+      width: 100%;
+      margin-top: 30px;
+      @include flex(s, s, 30px);
+      > .line {
+        overflow-x: auto;
+        @include media(930) {
+          @include width(1, 0, 100%);
+        }
+        @include media(440) {
+          display: none;
+        }
+        @include width(2, 30px, 50%);
+        background-color: $white;
+        padding: 20px;
+        box-shadow: $shadow;
+      }
+      > .dougnuts {
+        @include width(2, 30px, 50%);
+        @include media(930) {
+          @include width(1, 0, 100%);
+        }
+        background-color: $white;
+        padding: 20px;
+        box-shadow: $shadow;
+      }
+    }
+  }
+}

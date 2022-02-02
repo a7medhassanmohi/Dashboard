@@ -1,0 +1,299 @@
+@import "../../style/index.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#gradient-horizontal {
+  --color-stop-1: #a770ef;
+  --color-stop-2: #cf8bf3;
+  --color-stop-3: #fdb99b;
+}
+
+nav {
+  height: 60px;
+  box-shadow: $shadow;
+  background-color: $white;
+  // overflow: hidden;
+  padding: 4px 0;
+  position: relative;
+  @include pl(50);
+  @include pr(50);
+  @include media(430) {
+    @include pl(10);
+    @include pr(10);
+  }
+
+  > .topnav {
+    height: 100%;
+    @include flex(sb, c);
+    > .logo {
+      @include width(2, 0, 5%);
+      @include media(340) {
+        display: none;
+      }
+      > img {
+        width: 30px;
+        display: block;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+    > .links {
+      @include width(2, 0, 95%);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      > .userlogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        > img {
+          width: 50px;
+          display: block;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+        > h5 {
+          font-size: 13px;
+          font-weight: 200;
+          font-family: $ubntoFont;
+          color: $black;
+        }
+      }
+      > .dark {
+        @include ml(15);
+        > svg {
+          color: $iconcolor;
+          font-size: 22px;
+          cursor: pointer;
+        }
+      }
+      > .lang {
+        @include ml(15);
+        position: relative;
+        > svg {
+          font-size: 22px;
+
+          color: $iconcolor;
+          cursor: pointer;
+          &::before {
+            display: inline;
+          }
+        }
+        > .lang_menu {
+          position: absolute;
+          top: 40px;
+          inset-inline-start: -30px;
+          z-index: 50;
+          background-color: $white;
+          box-shadow: $shadow;
+          > .content {
+            height: 0;
+            transition: all 0.3s;
+            overflow: hidden;
+            > .wrapper {
+              ul {
+                > li {
+                  list-style: none;
+                  padding: 15px 10px;
+
+                  > button {
+                    border: none;
+                    outline: none;
+                    width: 70px;
+                    background-color: transparent;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 5px;
+                    color: $black;
+                    cursor: pointer;
+                    > img {
+                      width: 20px;
+                      height: 15px;
+                      object-fit: cover;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      > .menu {
+        @include ml(15);
+        > svg {
+          color: $iconcolor;
+          font-size: 22px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  > aside {
+    position: fixed;
+    top: 0px;
+    inset-inline-start: 0;
+    box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.28);
+    background-color: $white;
+    width: 350px;
+    height: calc(100vh);
+    z-index: 100;
+    padding-top: 30px;
+    transition: all 0.3s;
+    // transform: translateX(0);
+    @include media(550) {
+      width: 100%;
+    }
+
+    > svg {
+      position: absolute;
+      inset-inline-end: 20px;
+      top: 50px;
+      font-size: 20px;
+      color: $iconcolor;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: $maincolor;
+      }
+    }
+    > img {
+      max-width: 80%;
+      display: block;
+      object-fit: cover;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      @include pl(40);
+      @include pr(10);
+      cursor: pointer;
+    }
+    > .user {
+      @include flex(s, c, 10px);
+      @include pl(40);
+      @include pr(10);
+      margin-bottom: 30px;
+      > .logo {
+        @include width(2, 10px, 15%);
+        > img {
+          width: 100%;
+          display: block;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      > h5 {
+        @include width(2, 10px, 70%);
+        font-family: $ubntoFont;
+        font-weight: 400;
+        font-size: 17px;
+        color: $black;
+      }
+    }
+    > .links {
+      > div {
+        ul {
+          > li {
+            @include flex(sb, c, 0);
+            @include pl(40);
+            @include pr(40);
+            list-style: none;
+            // margin-bottom: 10px;
+            transition: all 0.3s;
+
+            &:hover {
+              background-color: $hoverColor;
+            }
+            &:hover a {
+              color: $maincolor;
+            }
+            &:hover svg {
+              color: $maincolor;
+            }
+            > a {
+              @include width(2, 0, 90%);
+              font-family: $ubntoFont;
+              text-decoration: none;
+              color: $black;
+              font-size: 17px;
+              font-weight: 100;
+              display: block;
+              position: relative;
+              // justify-content: flex-start;
+              // align-items: center;
+              gap: 5px;
+              padding-top: 13px;
+              padding-bottom: 13px;
+              transition: all 0.3s;
+              > svg {
+                position: absolute;
+                inset-inline-start: -25px;
+                transition: all 0.3s;
+              }
+              > svg.down {
+                transition: all 0.3s;
+                transform: rotate(90deg);
+              }
+              > p {
+                @include width(2, 5px, 80%);
+              }
+            }
+            > svg {
+              @include width(2, 0, 10%);
+              transition: all 0.3s;
+              color: $iconcolor;
+            }
+          }
+        }
+        > .item_container {
+          height: 0;
+          transition: all 0.3s;
+          overflow: hidden;
+          > .wrap {
+            ul {
+              > li {
+                list-style: none;
+                @include flex(sb, c, 0);
+                @include pl(60);
+                @include pr(60);
+                background-color: $backgroudSideMenu;
+                transition: all 0.3s;
+                &:hover {
+                  background-color: $backgroudSideMenuHover;
+                }
+                &:hover svg {
+                  color: $maincolor;
+                }
+                > a {
+                  @include width(2, 0, 80%);
+
+                  font-family: $ubntoFont;
+                  text-decoration: none;
+                  color: $black;
+                  font-size: 14px;
+                  font-weight: 100;
+                  display: block;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  transition: all 0.3s;
+                }
+                > svg {
+                  @include width(2, 0, 10%);
+                  color: $iconcolor;
+                  transition: all 0.3s;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  > aside.close {
+    // transform: translateX(110%);
+    inset-inline-start: -400px;
+  }
+}

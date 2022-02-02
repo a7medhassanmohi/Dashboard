@@ -1,0 +1,79 @@
+@import "../../style/index.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.user_table {
+  width: 100%;
+  background-color: $white;
+  padding: 20px;
+  box-shadow: $shadow;
+  overflow: auto;
+
+  > h5 {
+    font-family: $ubntoFont;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: $black;
+  }
+
+  > .table {
+    // width: 100%;
+    overflow-x: auto;
+    @include media(520) {
+      width: 150%;
+    }
+    @include media(350) {
+      width: 200%;
+    }
+    @include media(290) {
+      width: 250%;
+    }
+    > .head {
+      @include flex(s, c, 0);
+      > .numb {
+        @include width(3, 0, 10%);
+        color: $black;
+      }
+      > .name {
+        @include width(3, 0, 40%);
+        color: $black;
+      }
+      > .email {
+        @include width(3, 0, 50%);
+        color: $black;
+      }
+      border-bottom: 1px solid rgba(59, 59, 59, 0.342);
+      padding: 10px 0;
+    }
+    > .body {
+      > .item {
+        @include flex(s, c, 0);
+        border-bottom: 1px solid rgba(59, 59, 59, 0.342);
+        padding: 15px 0;
+        &:last-child {
+          margin-bottom: 0;
+          border-bottom: none;
+        }
+        &:nth-child(odd) {
+          background-color: $hoverColor;
+        }
+        > .numb {
+          @include width(3, 0, 10%);
+          color: $black;
+        }
+        > .name {
+          @include width(3, 0, 40%);
+          color: $black;
+        }
+        > .email {
+          @include width(3, 0, 50%);
+          color: $black;
+        }
+      }
+    }
+  }
+}
